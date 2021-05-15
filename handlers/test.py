@@ -33,7 +33,7 @@ async def quiz(call: CallbackQuery, state: FSMContext):
         answers[chat_id] = ""
 
 
-@dp.callback_query_handler(lambda query: query.data in ["back"], state="*")
+@dp.callback_query_handler(lambda query: query.data in ["cancel"], state="*")
 async def back(call: CallbackQuery, state: FSMContext):
     call.answer()
     await bot.edit_message_text(text="Сейчас тут будут вопросы", message_id=call.message.message_id, chat_id=call.from_user.id)
